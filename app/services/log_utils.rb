@@ -73,7 +73,7 @@ module LogUtils
 
   def get_player_name(line)
     line =~ PLAYER_REGREX
-    $1
+    Regexp.last_match(1)
   end
 
   def kill_event?(line)
@@ -82,9 +82,9 @@ module LogUtils
 
   def get_kill_info_from_kill_event(line)
     line =~ KILL_REGREX
-    killer = $1
-    killed = $2
-    kill_reason = $3
-    return killer, killed, kill_reason
+    killer = Regexp.last_match(1)
+    killed = Regexp.last_match(2)
+    kill_reason = Regexp.last_match(3)
+    [killer, killed, kill_reason]
   end
 end

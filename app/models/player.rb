@@ -24,7 +24,7 @@ class Player
     @kill_times - @suicide_times
   end
 
-  def ==(player)
-    player.name == @name
+  def ==(other)
+    other.name == @name
   end
 end
